@@ -168,46 +168,79 @@ function AppAppBar({ mode, toggleColorMode }: Readonly<AppAppBarProps>) {
                                     <Box
                                         sx={{
                                             display: 'flex',
-                                            flexDirection: 'column',
-                                            alignItems: 'end',
+                                            flexDirection: 'row',
+                                            alignItems: 'center',
+                                            justifyContent: 'space-between',
                                             flexGrow: 1,
+                                            mb: 6,
                                         }}
                                     >
                                         <ToggleColorMode
                                             mode={mode}
                                             toggleColorMode={toggleColorMode}
                                         />
+                                        <Link
+                                            href={'tel:9900990099'}
+                                            target='_blank'
+                                        >
+                                            <Button
+                                                color='primary'
+                                                variant='contained'
+                                                size='medium'
+                                                sx={{
+                                                    borderRadius: '999px',
+                                                    fontWeight: 600,
+                                                    padding: '0.05rem 2rem',
+                                                }}
+                                            >
+                                                Call Us
+                                            </Button>
+                                        </Link>
                                     </Box>
-                                    <MenuItem>Features</MenuItem>
-                                    <MenuItem>Testimonials</MenuItem>
-                                    <MenuItem>Highlights</MenuItem>
-                                    <MenuItem>Pricing</MenuItem>
-                                    <MenuItem>FAQ</MenuItem>
-                                    <Divider />
-                                    <MenuItem>
-                                        <Button
-                                            color='primary'
-                                            variant='contained'
-                                            component='a'
-                                            href='/material-ui/getting-started/templates/sign-up/'
-                                            target='_blank'
-                                            sx={{ width: '100%' }}
-                                        >
-                                            Sign up
-                                        </Button>
-                                    </MenuItem>
-                                    <MenuItem>
-                                        <Button
-                                            color='primary'
-                                            variant='outlined'
-                                            component='a'
-                                            href='/material-ui/getting-started/templates/sign-in/'
-                                            target='_blank'
-                                            sx={{ width: '100%' }}
-                                        >
-                                            Sign in
-                                        </Button>
-                                    </MenuItem>
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: '1rem',
+                                        }}
+                                    >
+                                        {menuLinks.map((menuLink) => (
+                                            <Link
+                                                key={menuLink.id}
+                                                href={menuLink.url}
+                                                style={{
+                                                    textDecoration: 'none',
+                                                }}
+                                            >
+                                                <Typography
+                                                    variant='body2'
+                                                    color='text.primary'
+                                                    sx={{
+                                                        color: 'text.primary',
+                                                        fontWeight: 500,
+                                                        width: '100%',
+                                                        px: '1rem',
+                                                        borderRadius: '999px',
+                                                        py: '0.5rem',
+                                                        textTransform: 'none',
+                                                        '&:hover': {
+                                                            color: 'text.primary',
+                                                            backgroundColor: (
+                                                                theme,
+                                                            ) =>
+                                                                theme.palette
+                                                                    .mode ===
+                                                                'dark'
+                                                                    ? 'primary.dark'
+                                                                    : 'primary.light',
+                                                        },
+                                                    }}
+                                                >
+                                                    {menuLink.name}
+                                                </Typography>
+                                            </Link>
+                                        ))}
+                                    </Box>
                                 </Box>
                             </Drawer>
                         </Box>
