@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import { styled } from '@mui/system';
 import { convertToTitleCase } from '@/lib/convertToTitleCase';
 
-interface courseProps {
+interface CourseProps {
     course: {
         title: string;
         description: string;
@@ -29,7 +29,7 @@ const ImageContainer = styled(Box)(({ theme }) => ({
     borderRadius: theme.shape.borderRadius,
 }));
 
-const CoursePage = ({ course }: courseProps) => {
+const CoursePage = ({ course }: CourseProps) => {
     const router = useRouter();
     if (router.isFallback) {
         return <div>Loading</div>;

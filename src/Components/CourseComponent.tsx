@@ -29,13 +29,13 @@ const CourseComponent = ({ courses }: CourseProps) => {
         <Container>
             <Box mt={6}>
                 <Grid container sx={{ mx: 'auto', gap: '1.8rem' }}>
-                    {courses.map((course) => (
+                    {courses?.map((course) => (
                         <Grid item key={course.id} mx={'auto'}>
                             <Box>
                                 <ImageContainer maxWidth={'100%'}>
                                     <Image
-                                        src={course.image.url}
-                                        alt={course.title}
+                                        src={course?.image?.url}
+                                        alt={course?.title}
                                         width={300}
                                         height={300}
                                         style={{
@@ -47,7 +47,7 @@ const CourseComponent = ({ courses }: CourseProps) => {
                                 </ImageContainer>
                                 <Typography variant='h6' component='h3' mt={2}>
                                     <Link
-                                        href={`/courses/${course.slug}`}
+                                        href={`/courses/${course?.slug}`}
                                         style={{ textDecoration: 'none' }}
                                     >
                                         <Box
@@ -70,7 +70,7 @@ const CourseComponent = ({ courses }: CourseProps) => {
                                     color='textSecondary'
                                     mt={1}
                                 >
-                                    {convertToTitleCase(course.category)}
+                                    {convertToTitleCase(course?.category)}
                                 </Typography>
                                 <Typography
                                     variant='body2'
@@ -84,7 +84,7 @@ const CourseComponent = ({ courses }: CourseProps) => {
                                         display: 'inline-block',
                                     }}
                                 >
-                                    ₹{course.price}
+                                    ₹{course?.price}
                                 </Typography>
                             </Box>
                         </Grid>

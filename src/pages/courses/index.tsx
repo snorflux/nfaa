@@ -19,7 +19,7 @@ const StyledContainer = styled(Container)(({ theme }) => ({
     },
 }));
 
-interface courseProps {
+interface CourseProps {
     courses: {
         id: string;
         title: string;
@@ -30,7 +30,7 @@ interface courseProps {
     }[];
 }
 
-const CoursesSection = ({ courses }: courseProps) => (
+const CoursesSection = ({ courses }: CourseProps) => (
     <StyledContainer>
         <Box component='div' mx='auto' py={'6rem'}>
             <Box
